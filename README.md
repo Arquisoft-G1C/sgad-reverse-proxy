@@ -45,4 +45,8 @@ docker-compose stop nginx
 
 # Iniciar solo nginx
 docker-compose start nginx
+
+# Reconstruir la imagen sin usar capas antiguas.
+docker-compose build --no-cache reverse-proxy
+docker-compose up -d reverse-proxy
 ```
