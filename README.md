@@ -26,6 +26,11 @@ docker-compose ps
 
 # Ver logs de todos los servicios
 docker-compose logs -f
+
+# Reconstruir la imagen sin usar capas antiguas.
+docker-compose build --no-cache reverse-proxy
+docker-compose up -d reverse-proxy
+
 ```
 
 ### Comandos Específicos de Nginx
@@ -46,9 +51,9 @@ docker-compose stop nginx
 # Iniciar solo nginx
 docker-compose start nginx
 
-# Reconstruir la imagen sin usar capas antiguas.
-docker-compose build --no-cache reverse-proxy
-docker-compose up -d reverse-proxy
+```
+### Comandos de Pruebas
+```bash
 
 # Testear funcion de limite de peticiones (Windows)
 powershell ./tests/rate_limit_test.ps1
