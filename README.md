@@ -49,4 +49,13 @@ docker-compose start nginx
 # Reconstruir la imagen sin usar capas antiguas.
 docker-compose build --no-cache reverse-proxy
 docker-compose up -d reverse-proxy
+
+# Testear funcion de limite de peticiones (Windows)
+powershell ./tests/rate_limit_test.ps1
+
+# Testear funcion de balanceo de carga (Windows)
+powershell ./tests/api_load_test.ps1
+
+# Listar redes de Docker
+docker network ls
 ```
